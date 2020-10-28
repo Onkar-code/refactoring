@@ -39,7 +39,7 @@ public class Lloguer {
 		return vehicle;
 	}
 	
-	 public double quantitatPerLloguer(Lloguer lloguer) {
+	 public double quantitat() {
 	        double quantitat = 0;
 	        
 	        switch (getVehicle().getCategoria()) {
@@ -60,5 +60,17 @@ public class Lloguer {
 	                break;
 	        }
 	        return quantitat;
+	    }
+	
+	 public int bonifiacions() {
+	    	// afegeix lloguers freqüents
+	        int bonificacions = 1;
+
+	        // afegeix bonificació per dos dies de lloguer de Luxe
+	        if (getVehicle().getCategoria() == Vehicle.LUXE &&
+	                getDies()>1 ) {
+	            bonificacions++;
+	        }
+	        return bonificacions;     
 	    }
 }
